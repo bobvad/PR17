@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public Context Context;
-    ArrayList<Basket> BasketList = new ArrayList<>();
+    public ArrayList<Basket> BasketList = new ArrayList<>();
     ArrayList<Item> Items;
 
     public iOnClickInterface AddBasker = new iOnClickInterface() {
@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(Context, "Товар добавлен в корзину", Toast.LENGTH_SHORT).show();
         }
     };
+    public static MainActivity init;
+
     public void OpenBasketView(View view)
     {
         Intent newIntent = new Intent(this,BasketActivity.class);
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Context = this;
-        MainActivity init = this;
+        init = this;
         ArrayList<Category> Categories = CategoryContext.All();
         Items = ItemContext.All();
 

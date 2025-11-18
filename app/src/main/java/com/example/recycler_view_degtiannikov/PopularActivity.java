@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,6 +20,18 @@ public class PopularActivity extends AppCompatActivity {
     ArrayList<Category> Categories = new ArrayList<>();
     ArrayList<Item> Items = new ArrayList<>();
     public Context Context;
+
+    iOnClickInterface ItemClick = new iOnClickInterface() {
+        @Override
+        public void setClick(View view, int itemId) {
+            for (Item item : Items) {
+                if (item.Id == itemId) {
+                    Toast.makeText(PopularActivity.this, "Added to basket: " + item.Name, Toast.LENGTH_SHORT).show();
+                    break;
+                }
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +67,11 @@ public class PopularActivity extends AppCompatActivity {
 
         Items = IdCategory == -1 ? ItemContext.All() : ItemContext.GetByCategory(IdCategory);
         CardList.setLayoutManager(new GridLayoutManager(this, 2));
-        ItemAdapter CardAdapter = new ItemAdapter(this, Items);
+
+        ItemAdapter CardAdapter = new ItemAdapter(this, Items, ItemClick);
         CardList.setAdapter(CardAdapter);
     }
+
     CategoryAdapter.OnClickInterface CategoryClick = new CategoryAdapter.OnClickInterface() {
         @Override
         public void setClick(View view, int position) {
@@ -70,7 +85,8 @@ public class PopularActivity extends AppCompatActivity {
             TvNamePage.setText(SelectCategory.Name);
 
             Items = ItemContext.GetByCategory(SelectCategory.Id);
-            ItemAdapter CardAdapter = new ItemAdapter(Context, Items);
+
+            ItemAdapter CardAdapter = new ItemAdapter(Context, Items, ItemClick);
             CardList.setAdapter(CardAdapter);
         }
     };
