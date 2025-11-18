@@ -30,7 +30,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public CategoryAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = Inflater.inflate(R.layout.item_category, parent, false); // создаём View из свёрстанного элемента
+        View view = Inflater.inflate(R.layout.item_category, parent, false);
         return new ViewHolder(view);
     }
 

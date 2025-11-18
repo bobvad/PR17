@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/name_page">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="match_parent"
+            android:layout_width="303dp"
             android:layout_height="52dp"
             android:layout_marginRight="14dp"
             android:background="@drawable/search_bacrpund"
@@ -69,7 +69,6 @@
 
     </LinearLayout>
 
-    <!-- Категории -->
     <TextView
         android:id="@+id/tv_name_category"
         android:layout_width="match_parent"
@@ -86,6 +85,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_list"
         android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_height="40dp"
         android:layout_marginTop="19dp"
         android:layout_marginLeft="20dp"
@@ -95,7 +95,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_category" />
 
-    <!-- Популярные товары -->
     <TextView
         android:id="@+id/tv_name_card"
         android:layout_width="match_parent"
@@ -120,6 +119,7 @@
         android:textColor="#4882E7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:onClick="OpenPopularView"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_card" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -130,6 +130,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"

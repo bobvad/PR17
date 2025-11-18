@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(newIntent);
     }
 
-    iOnClickInterface Click = new iOnClickInterface() {
+    CategoryAdapter.OnClickInterface Click = new CategoryAdapter.OnClickInterface() {
         @Override
         public void setClick(View view, int position) {
             Intent newIntent = new Intent(Context, PopularActivity.class);
