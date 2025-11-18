@@ -38,18 +38,18 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    public void OpenPopularView(View view) { // открытие популярных товаров
-        Intent newIntent = new Intent(this, PopularActivity.class); // создаём intent
-        newIntent.putExtra("Category", -1); // запоминаем категорию
-        startActivity(newIntent); // открываем активность
+    public void OpenPopularView(View view) {
+        Intent newIntent = new Intent(this, PopularActivity.class);
+        newIntent.putExtra("Category", -1);
+        startActivity(newIntent);
     }
 
-    iOnClickInterface Click = new iOnClickInterface() { // Создаём обработчик события при выборе категории
+    iOnClickInterface Click = new iOnClickInterface() {
         @Override
-        public void setClick(View view, int position) { // при нажатии на категорию
-            Intent newIntent = new Intent(Context, PopularActivity.class); // создаём intent
-            newIntent.putExtra("Category", position); // запоминаем категорию
-            startActivity(newIntent); // открываем активность
+        public void setClick(View view, int position) {
+            Intent newIntent = new Intent(Context, PopularActivity.class);
+            newIntent.putExtra("Category", position);
+            startActivity(newIntent);
         }
     };
 }
