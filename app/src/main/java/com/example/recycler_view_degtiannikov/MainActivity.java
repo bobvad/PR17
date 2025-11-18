@@ -41,7 +41,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(Context, "Товар добавлен в корзину", Toast.LENGTH_SHORT).show();
         }
     };
-
+    public void OpenBasketView(View view)
+    {
+        Intent newIntent = new Intent(this,BasketActivity.class);
+        startActivity(newIntent);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
